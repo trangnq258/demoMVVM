@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="breedResponse"
+            type="com.example.demomvvm.data.model.Detail" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:background="@android:color/white"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_12">
+
+        <ImageView
+            android:id="@+id/imageBreed"
+            cropStatus="@{true}"
+            image="@{breedResponse.url}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.18"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{breedResponse.breeds.get(0).name}"
+            android:textColor="@color/river_bed"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageBreed"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_2"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="@{breedResponse.breeds.get(0).description}"
+            android:textAlignment="gravity"
+            android:textColor="@color/mine_shaft"
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageBreed"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
