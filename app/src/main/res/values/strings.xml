@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">demoMVVM</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_message">Welcome to Boss\'s world</string>
+    <string name="title_breed">Breed</string>
+    <string name="title_adaptability">Adaptability</string>
+    <string name="title_affection_level">Affection_level</string>
+    <string name="title_child_friendly">Child_friendly</string>
+    <string name="title_dog_friendly">Dog_friendly</string>
+    <string name="title_energy_level">Energy_level</string>
+    <string name="title_grooming">Grooming</string>
+    <string name="title_health_issues">Health_issues</string>
+    <string name="title_intelligence">Intelligence</string>
+    <string name="title_social_needs">Social_needs</string>
+    <string name="title_shedding_level">Shedding_level</string>
+    <string name="title_stranger_friendly">Stranger_friendly</string>
+    <string name="title_vocalisation">Vocalisation</string>
 </resources>

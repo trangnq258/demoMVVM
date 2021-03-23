@@ -5,4 +5,9 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="gray">#F1F1F1</color>
+    <color name="dusty_gray">#999999</color>
+    <color name="orange">#F1703E</color>
+    <color name="river_bed">#47525E</color>
+    <color name="mine_shaft">#222222</color>
 </resources>

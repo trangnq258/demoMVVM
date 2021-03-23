@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="detailVM"
+            type="com.example.demomvvm.ui.detail.DetailViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageBanner"
+                cropStatus="@{false}"
+                image="@{detailVM.detail.url}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_12"
+                android:gravity="center"
+                android:text="@{detailVM.breed.name}"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageBanner" />
+
+            <TextView
+                android:id="@+id/textOrigin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:background="@drawable/bg_gray_radius_16"
+                android:gravity="center"
+                android:padding="@dimen/dp_8"
+                android:text="@{detailVM.breed.origin}"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textName" />
+
+            <ImageView
+                android:id="@+id/imageFavorite"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:src="@{detailVM.isFavorite() ? @drawable/ic_favorite : @drawable/ic_heart}"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toEndOf="@+id/textOrigin"
+                app:layout_constraintTop_toBottomOf="@+id/textName"
+                app:layout_constraintWidth_percent="0.08" />
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:text="@{detailVM.breed.description}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageFavorite" />
+
+            <TextView
+                android:id="@+id/textAdaptability"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/title_adaptability"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+
+            <RatingBar
+                android:id="@+id/ratingBarAdaptability"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.adaptability}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textAdaptability" />
+
+            <TextView
+                android:id="@+id/textAffectionLevel"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_affection_level"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarAdaptability" />
+
+            <RatingBar
+                android:id="@+id/ratingBarAffectionLevel"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.affectionLevel}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textAffectionLevel" />
+
+            <TextView
+                android:id="@+id/textChildFriendly"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_child_friendly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarAffectionLevel" />
+
+            <RatingBar
+                android:id="@+id/ratingBarChildFriendly"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.childFriendly}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textChildFriendly" />
+
+            <TextView
+                android:id="@+id/textDogFriendly"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_dog_friendly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarChildFriendly" />
+
+            <RatingBar
+                android:id="@+id/ratingBarDogFriendly"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.dogFriendly}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDogFriendly" />
+
+            <TextView
+                android:id="@+id/textEnergyLevel"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_energy_level"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarDogFriendly" />
+
+            <RatingBar
+                android:id="@+id/ratingBarEnergyLevel"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.energyLevel}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textEnergyLevel" />
+
+            <TextView
+                android:id="@+id/textGrooming"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_grooming"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarEnergyLevel" />
+
+            <RatingBar
+                android:id="@+id/ratingBarGrooming"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.grooming}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textGrooming" />
+
+            <TextView
+                android:id="@+id/textHealthIssues"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_health_issues"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarGrooming" />
+
+            <RatingBar
+                android:id="@+id/ratingBarHealthIssue"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.healthIssues}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textHealthIssues" />
+
+            <TextView
+                android:id="@+id/textIntelligence"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_intelligence"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarHealthIssue" />
+
+            <RatingBar
+                android:id="@+id/ratingBarIntelligence"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.intelligence}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textIntelligence" />
+
+            <TextView
+                android:id="@+id/textSheddingLevel"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_shedding_level"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarIntelligence" />
+
+            <RatingBar
+                android:id="@+id/ratingBarSheddingLevel"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.intelligence}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSheddingLevel" />
+
+            <TextView
+                android:id="@+id/textSocialNeed"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_social_needs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarSheddingLevel" />
+
+            <RatingBar
+                android:id="@+id/ratingBarSocialNeed"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.socialNeeds}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSocialNeed" />
+
+            <TextView
+                android:id="@+id/textStrangerFriendly"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_stranger_friendly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarSocialNeed" />
+
+            <RatingBar
+                android:id="@+id/ratingBarStrangerFriendly"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.strangerFriendly}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textStrangerFriendly" />
+
+            <TextView
+                android:id="@+id/textVocalisation"
+                style="@style/customTextRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_vocalisation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarStrangerFriendly" />
+
+            <RatingBar
+                android:id="@+id/ratingBarVocalisation"
+                style="@style/customRatingBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:rating="@{detailVM.breed.vocalisation}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textVocalisation" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
